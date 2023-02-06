@@ -151,6 +151,25 @@ public class RadioTest {
 
         Assertions.assertEquals(75, radio.getCurrentVolume());
     }
+    @Test
+    public void shouldMaxOneVolume() {
 
+        expectedVol = radio.getMaxVolume();
+        radio.setCurrentVolume(100);
+        radio.increaseVolume();
+
+        Assertions.assertEquals(expectedVol, radio.getCurrentVolume());
+    }
+
+    @Test
+    public void shouldMinOneVolume() {
+
+        expectedVol = radio.getMinVolume();
+        radio.setCurrentVolume(0);
+        radio.reduceVolume();
+
+        Assertions.assertEquals(expectedVol, radio.getCurrentVolume());
+    }
 }
+
 
